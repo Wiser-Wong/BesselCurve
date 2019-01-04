@@ -1,5 +1,8 @@
 package com.wiser.beseelcurveanim;
 
+/**
+ * @author Wiser
+ */
 public interface BesselType {
 
 	int	S_BESSEL	= 111;

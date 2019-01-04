@@ -1,5 +1,8 @@
 package com.wiser.beseelcurveanim;
 
+/**
+ * @author Wiser
+ */
 public class BesselModel {
 
 	public int		type;

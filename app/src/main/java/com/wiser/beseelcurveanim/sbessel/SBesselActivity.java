@@ -12,6 +12,9 @@ import android.view.View;
 import butterknife.BindView;
 import butterknife.OnClick;
 
+/**
+ * @author Wiser
+ */
 public class SBesselActivity extends WISERActivity {
 
 	@BindView(R.id.iv_start) StartImageView	ivStart;

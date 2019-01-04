@@ -6,6 +6,9 @@ import com.wiser.library.base.WISERBuilder;
 import android.content.Intent;
 import android.support.v7.widget.LinearLayoutManager;
 
+/**
+ * @author Wiser
+ */
 public class HomeActivity extends WISERActivity<HomeBiz> {
 
 	@Override protected WISERBuilder build(WISERBuilder wiserBuilder) {

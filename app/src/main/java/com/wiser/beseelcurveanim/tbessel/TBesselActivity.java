@@ -7,6 +7,9 @@ import com.wiser.library.helper.WISERHelper;
 
 import android.content.Intent;
 
+/**
+ * @author Wiser
+ */
 public class TBesselActivity extends WISERActivity {
 
 	public static void intent() {

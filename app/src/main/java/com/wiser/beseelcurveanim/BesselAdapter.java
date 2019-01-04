@@ -13,6 +13,9 @@ import com.wiser.library.base.WISERActivity;
 
 import butterknife.BindView;
 
+/**
+ * @author Wiser
+ */
 public class BesselAdapter extends WISERRVAdapter<BesselModel, BesselAdapter.HomeHolder> {
 
 	public BesselAdapter(WISERActivity mWiserActivity) {
