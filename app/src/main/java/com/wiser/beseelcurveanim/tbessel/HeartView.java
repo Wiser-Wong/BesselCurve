@@ -10,89 +10,93 @@ import android.util.AttributeSet;
 
 import java.util.Random;
 
+/**
+ * @author Wiser
+ * 
+ *         心形控件
+ */
 public class HeartView extends AppCompatImageView {
 
-    private Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
+	private Paint	paint		= new Paint(Paint.ANTI_ALIAS_FLAG);
 
-    private int colors[] = new int[]{Color.BLUE, Color.RED, Color.GREEN};
+	private int		colors[]	= new int[] { Color.BLUE, Color.RED, Color.GREEN };
 
-    private Random mRandom = new Random();
+	private Random	mRandom		= new Random();
 
-    private float width = 100;
-    private float height = 130;
+	private float	width		= 100;
 
-    public HeartView(Context context) {
-        super(context);
-        init();
-    }
+	private float	height		= 130;
 
-    public HeartView(Context context, AttributeSet attrs) {
-        super(context, attrs);
-        init();
-    }
+	public HeartView(Context context) {
+		super(context);
+		init();
+	}
 
-    private void init() {
-        paint.setColor(colors[mRandom.nextInt(colors.length)]);
-        paint.setStyle(Paint.Style.FILL);
-        paint.setStrokeWidth(10);
-    }
+	public HeartView(Context context, AttributeSet attrs) {
+		super(context, attrs);
+		init();
+	}
 
-    public float heartWidth() {
-        return width;
-    }
+	private void init() {
+		paint.setColor(colors[mRandom.nextInt(colors.length)]);
+		paint.setStyle(Paint.Style.FILL);
+		paint.setStrokeWidth(10);
+	}
 
-    public float heartHeight() {
-        return height;
-    }
+	public float heartWidth() {
+		return width;
+	}
 
-    @Override
-    protected void onDraw(Canvas canvas) {
-        super.onDraw(canvas);
-        canvas.drawColor(Color.TRANSPARENT);
+	public float heartHeight() {
+		return height;
+	}
 
-        Path pathLeft = new Path();
-        pathLeft.moveTo(width / 2, height / 4);
-        pathLeft.cubicTo(width / 7, height / 9, width / 13, (height * 2) / 5, width / 2, (height * 7) / 12);
-        canvas.drawPath(pathLeft, paint);
+	@Override protected void onDraw(Canvas canvas) {
+		super.onDraw(canvas);
+		canvas.drawColor(Color.TRANSPARENT);
 
-        Path pathRight = new Path();
-        pathRight.moveTo(width / 2, height / 4);
-        pathRight.cubicTo((width * 6) / 7, height / 9, (width * 12) / 13, (height * 2) / 5, width / 2, (height * 7) / 12);
-        canvas.drawPath(pathRight, paint);
+		Path pathLeft = new Path();
+		pathLeft.moveTo(width / 2, height / 4);
+		pathLeft.cubicTo(width / 7, height / 9, width / 13, (height * 2) / 5, width / 2, (height * 7) / 12);
+		canvas.drawPath(pathLeft, paint);
 
-    }
+		Path pathRight = new Path();
+		pathRight.moveTo(width / 2, height / 4);
+		pathRight.cubicTo((width * 6) / 7, height / 9, (width * 12) / 13, (height * 2) / 5, width / 2, (height * 7) / 12);
+		canvas.drawPath(pathRight, paint);
 
-    @Override
-    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+	}
 
-        int widthMode = MeasureSpec.getMode(widthMeasureSpec);
-        int heightMode = MeasureSpec.getMode(heightMeasureSpec);
-        int widthSize = MeasureSpec.getSize(widthMeasureSpec);
-        int heightSize = MeasureSpec.getSize(heightMeasureSpec);
+	@Override protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+		super.onMeasure(widthMeasureSpec, heightMeasureSpec);
 
-        int width = 0;
-        int height = 0;
+		int widthMode = MeasureSpec.getMode(widthMeasureSpec);
+		int heightMode = MeasureSpec.getMode(heightMeasureSpec);
+		int widthSize = MeasureSpec.getSize(widthMeasureSpec);
+		int heightSize = MeasureSpec.getSize(heightMeasureSpec);
 
-        switch (widthMode) {
-            case MeasureSpec.AT_MOST:
-            case MeasureSpec.EXACTLY:
-                width = (int) this.width;
-                break;
-            case MeasureSpec.UNSPECIFIED:
-                width = widthSize;
-                break;
-        }
-        switch (heightMode) {
-            case MeasureSpec.AT_MOST:
-            case MeasureSpec.EXACTLY:
-                height = (int) this.height;
-                break;
-            case MeasureSpec.UNSPECIFIED:
-                height = heightSize;
-                break;
-        }
+		int width = 0;
+		int height = 0;
 
-        setMeasuredDimension(width, height);
-    }
+		switch (widthMode) {
+			case MeasureSpec.AT_MOST:
+			case MeasureSpec.EXACTLY:
+				width = (int) this.width;
+				break;
+			case MeasureSpec.UNSPECIFIED:
+				width = widthSize;
+				break;
+		}
+		switch (heightMode) {
+			case MeasureSpec.AT_MOST:
+			case MeasureSpec.EXACTLY:
+				height = (int) this.height;
+				break;
+			case MeasureSpec.UNSPECIFIED:
+				height = heightSize;
+				break;
+		}
+
+		setMeasuredDimension(width, height);
+	}
 }

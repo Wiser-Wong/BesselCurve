@@ -6,6 +6,7 @@ import com.wiser.library.base.WISERBuilder;
 import com.wiser.library.helper.WISERHelper;
 
 import android.content.Intent;
+import android.graphics.Point;
 import android.view.View;
 
 import butterknife.BindView;
@@ -33,7 +34,7 @@ public class SBesselActivity extends WISERActivity {
 	@OnClick(value = { R.id.iv_start }) public void onClickView(View view) {
 		switch (view.getId()) {
 			case R.id.iv_start:
-				ivStart.startAnim(new ControlPoint(PointUtil.pointXY(ivStart, PointUtil.X), ivStart.getY()), new ControlPoint(PointUtil.pointXY(ivEnd, PointUtil.X), ivEnd.getY()));
+				ivStart.startAnim(new Point(PointUtil.pointXY(ivStart, PointUtil.X), (int) ivStart.getY()), new Point(PointUtil.pointXY(ivEnd, PointUtil.X), (int) ivEnd.getY()));
 				break;
 		}
 	}
