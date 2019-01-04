@@ -26,23 +26,35 @@ public class HeartViewLayout extends FrameLayout implements View.OnTouchListener
         setOnTouchListener(this);
     }
 
+    /**
+     * 添加心形图案 然后启动动画
+     *
+     * @param point
+     */
     private void addHeartView(Point point) {
         HeartView heartView = new HeartView(getContext());
         LayoutParams params = new LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         params.leftMargin = (int) (point.x - heartView.heartWidth() / 2);
         params.topMargin = (int) (point.y - heartView.heartHeight() / 2);
         addView(heartView, params);
-        AnimatorSet animatorSet = objectAnimator(heartView, point);
+        AnimatorSet animatorSet = animatorSet(heartView, point);
         animatorSet.start();
     }
 
-    private AnimatorSet objectAnimator(HeartView heartView, Point point) {
+    /**
+     * 动画执行
+     *
+     * @param heartView
+     * @param point
+     * @return
+     */
+    private AnimatorSet animatorSet(HeartView heartView, Point point) {
         ObjectAnimator scaleX = ObjectAnimator.ofFloat(heartView, "scaleX", 0.2f, 1.5f);
         ObjectAnimator scaleY = ObjectAnimator.ofFloat(heartView, "scaleY", 0.2f, 1.5f);
         ObjectAnimator alpha = ObjectAnimator.ofFloat(heartView, "alpha", 0.2f, 1f);
         AnimatorSet animatorSet = new AnimatorSet();
         animatorSet.playTogether(scaleX, scaleY, alpha);
-        animatorSet.setDuration(500);
+        animatorSet.setDuration(400);
 
         ValueAnimator valueAnimator = valueAnimator(point, heartView);
         AnimatorSet set = new AnimatorSet();
